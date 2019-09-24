@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>PrimeFaces Test</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputText>#{textView.testString}</h:outputText>
+        <p:growl id="messages" showDetail="false" />
+        <p:fieldset legend="Buttons">
+            <h:panelGrid columns="4" cellpadding="5">
+                <p:button value="Bookmark" icon="pi pi-star" style="margin-right:20px;">
+                    <f:param name="productId" value="10" />
+                </p:button>
+
+                <p:button value="With Icon" icon="pi pi-star" style="margin-right:20px;">
+                    <f:param name="productId" value="20" />
+                </p:button>
+
+                <p:button icon="pi pi-star" style="margin-right:20px;" title="Icon Only">
+                    <f:param name="productId" value="30" />
+                </p:button>
+
+                <p:button value="Bookmark" icon="pi pi-star" disabled="true" style="margin-right:20px;">
+                    <f:param name="productId" value="40" />
+                </p:button>
+            </h:panelGrid>
+        </p:fieldset>
+
+        <p:fieldset legend="PanelGrid">
+            <p:panelGrid style="margin-top:20px">
+                <f:facet name="header">
+                    <p:row>
+                        <p:column colspan="7">1995-96 NBA Playoffs</p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="2">Conf. Semifinals</p:column>
+                        <p:column colspan="2">Conf. Finals</p:column>
+                        <p:column colspan="2">NBA Finals</p:column>
+                        <p:column>Champion</p:column>
+                    </p:row>
+
+                </f:facet>
+
+                <p:row>
+                    <p:column style="font-weight: bold;">Seattle</p:column>
+                    <p:column style="font-weight: bold;">4</p:column>
+
+                    <p:column rowspan="2" style="font-weight: bold;">Seattle</p:column>
+                    <p:column rowspan="2" style="font-weight: bold;">4</p:column>
+
+                    <p:column rowspan="5">Seattle</p:column>
+                    <p:column rowspan="5">2</p:column>
+
+                    <p:column rowspan="11" style="font-weight: bold;">Chicago</p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column>Houston</p:column>
+                    <p:column>0</p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column colspan="4" styleClass="ui-widget-header">
+                        <p:spacer height="0" />
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column style="font-weight: bold;">Utah</p:column>
+                    <p:column style="font-weight: bold;">4</p:column>
+
+                    <p:column rowspan="2">Utah</p:column>
+                    <p:column rowspan="2">3</p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column>San Antonio</p:column>
+                    <p:column>2</p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column colspan="6" styleClass="ui-widget-header">
+                        <p:spacer height="0" />
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column style="font-weight: bold;">Chicago</p:column>
+                    <p:column style="font-weight: bold;">4</p:column>
+
+                    <p:column rowspan="2" style="font-weight: bold;">Chicago</p:column>
+                    <p:column rowspan="2" style="font-weight: bold;">4</p:column>
+
+                    <p:column rowspan="5" style="font-weight: bold;">Chicago</p:column>
+                    <p:column rowspan="5" style="font-weight: bold;">4</p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column>New York</p:column>
+                    <p:column>1</p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column colspan="4" styleClass="ui-widget-header">
+                        <p:spacer height="0" />
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column>Atlanta</p:column>
+                    <p:column>1</p:column>
+
+                    <p:column rowspan="2">Orlando</p:column>
+                    <p:column rowspan="2">0</p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column style="font-weight: bold;">Orlando</p:column>
+                    <p:column style="font-weight: bold;">4</p:column>
+                </p:row>
+
+
+                <f:facet name="footer">
+                    <p:row>
+                        <p:column colspan="4" style="text-align: right">
+                            Finals MVP
+                        </p:column>
+                        <p:column colspan="3" rowspan="3">
+                            Michael Jordan (Chicago)
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column colspan="4" style="text-align: right">
+                            Season MVP
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="4" style="text-align: right">
+                            Top Scorer
+                        </p:column>
+                    </p:row>
+                </f:facet>
+            </p:panelGrid>
+        </p:fieldset>
+
+        <p:fieldset legend="Menu" toggleable="true">
+            <p:menu>
+                <p:submenu label="Ajax">
+                    <p:menuitem value="Save" action="#{testView.save}" update="messages" icon="pi pi-save" />
+                    <p:menuitem value="Update" action="#{testView.update}" update="messages" icon="pi pi-refresh" />
+                </p:submenu>
+                <p:submenu label="Non-Ajax">
+                    <p:menuitem value="Delete" action="#{testView.delete}" update="messages" ajax="false"
+                        icon="pi pi-times" />
+                </p:submenu>
+                <p:submenu label="Navigations">
+                    <p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home" />
+                    <p:menuitem value="Internal" icon="pi pi-star" />
+                </p:submenu>
+            </p:menu>
+        </p:fieldset>
+        <p:fieldset legend="OutputHtml in Prime" toggleable="true">
+            <f:facet name="header">
+                <h:outputText value="Header facet" />
+            </f:facet>
+            <f:facet name="body">
+                <table border="1">
+                    <tr>
+                        <td>Teste 1</td>
+                    </tr>
+                    <tr>
+                        <td>Teste 2</td>
+                    </tr>
+                </table>
+            </f:facet>
+        </p:fieldset>
+    </h:form>
+</h:body>
+
+</html>
